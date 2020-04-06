@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import * as Mixins from '../Mixins';
 import * as t from '../Typography';
 import Layout, { Content } from '../components/Layout';
-import Placeholder from '../images/placeholder.png';
 import { HireMe, LinkButton } from '../components/Button.js';
 import HireMePopup from '../components/HireMePopup.js';
 import { media } from '../MediaQueries';
@@ -11,6 +10,8 @@ import Colors from '../Colors';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import { darken } from 'polished';
+import Resume from '../components/Resume';
+import Download from '../components/Download';
 
 const AboveFold = styled.div`
   ${Mixins.aboveFoldMixin}
@@ -146,26 +147,20 @@ class Homepage extends React.Component {
           <AboveFold>
             <Img fluid={data.avatarHomepage.childImageSharp.fluid} alt="Name Surname" className="avatar" />
             <t.H1 primary align="center">
-              Name Surname
+              Mark Teffeteller
             </t.H1>
             <t.LargeP align="center" max45>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Software engineer and cloud apprentice specializing in databases and distributed technology.
             </t.LargeP>
             <HireMe large onClick={this.openContactPopup} book>
-              Hire me
+              Connect 
+            </HireMe>
+            <HireMe large book>
+            <a style={{color: "inherit", textDecoration:"none"}} href="resume.pdf" download="teffeteller_resume">Download Resume</a> 
             </HireMe>
           </AboveFold>
-          <Content>
-            <t.H2 primary align="center" bold>
-              Lorem ipsum
-            </t.H2>
-            <t.P align="center" max70 className="who-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </t.P>
-            <t.H2 primary align="center" bold className="portfolio">
-              Portfolio
-            </t.H2>
-          </Content>
+
+          {/*
           <Block>
             <BlockContent>
               <DivWrapper>
@@ -234,13 +229,11 @@ class Homepage extends React.Component {
               </DivWrapper>
             </BlockContent>
           </Block>
+          */}
           <WorkWithMe>
-            <t.H1 green>Get in touch with me</t.H1>
-            <t.LargeP>
-              Fancy working with me? Contact me for more info!{' '}
-            </t.LargeP>
+            <t.H1 green>Technology for good.</t.H1>
             <HireMe onClick={this.openContactPopup} book>
-              Contact me
+              Connect
             </HireMe>
           </WorkWithMe>
         </Layout>

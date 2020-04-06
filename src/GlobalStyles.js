@@ -63,6 +63,10 @@ const GlobalStyles = createGlobalStyle`
       left: 100%;
     }
   }
+
+  .GH {
+    max-width: 100px;
+  }
 `;
 
 export default GlobalStyles;

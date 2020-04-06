@@ -4,6 +4,8 @@ import { lighten, darken } from 'polished';
 import * as t from '../Typography';
 import Colors from '../Colors';
 import LN from '../images/ln.png';
+import IG from '../images/IG.png';
+import GH from '../images/GH.png';
 import Close from '../images/close-popup-grey.png';
 import { media } from '../MediaQueries';
 import Helmet from 'react-helmet';
@@ -89,11 +91,21 @@ class HireMePopup extends React.Component {
           <Burger onClick={this.closePopup}>
             <img alt="Close popup" src={Close} />
           </Burger>
-          <t.H3>Contact me on</t.H3>
+          <t.H3>Connect with me on</t.H3>
           <Link primary bold
             target="_blank"
-            href="https://www.linkedin.com/">
-            <img src={LN} alt="Your Linkedin profile" />
+            href="https://www.linkedin.com/in/mark-teffeteller/">
+            <img src={LN} alt="My LinkedIn" />
+          </Link>
+          <Link primary bold
+            target="_blank"
+            href="https://github.com/marktefftech">
+            <img src={GH} alt="My gitHub" className="GH"/>
+          </Link>
+          <Link primary bold
+            target="_blank"
+            href="https://www.instagram.com/markteffeteller/?hl=en">
+            <img src={IG} alt="My gitHub" className="GH"/>
           </Link>
         </ContentWrapper>
       </HireMePopupWrapper>

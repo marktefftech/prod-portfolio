@@ -259,7 +259,7 @@ class Header extends React.Component {
               </li>
               <li>
                 <HireMe theme={theme} onClick={this.openContactPopup} book>
-                  Contact me
+                  Connect
                 </HireMe>
               </li>
             </MenuList>
