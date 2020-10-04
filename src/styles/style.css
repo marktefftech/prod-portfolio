@@ -10,9 +10,9 @@
 }
  
  .fEKLSi {
-    background-image: url("/stars.jpg") !important;
+    background-image: url("../images/stars.jpg") !important;
  }
 
  h4, h1 {
-     color: white !important;
+     color: red !important;
  }
