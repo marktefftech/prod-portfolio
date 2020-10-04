@@ -10,8 +10,7 @@ import Colors from '../Colors';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import { darken } from 'polished';
-import Resume from '../components/Resume';
-import Download from '../components/Download';
+import '../styles/style.css';
 
 const AboveFold = styled.div`
   ${Mixins.aboveFoldMixin}
@@ -138,25 +137,26 @@ class Homepage extends React.Component {
     });
   };
 
+  openProjectsPopup = () => {
+    this.setState({
+      openProjectsPopup: true
+    });
+  };
+
   render() {
     const { openHireMePopup } = this.state;
     const { data } = this.props;
     return (
       <HomepageWrapper>
-        <Layout theme="white" bigFooter openContactPopup={this.openContactPopup}>
+        <Layout theme="black" bigFooter openContactPopup={this.openContactPopup}>
           <AboveFold>
             <Img fluid={data.avatarHomepage.childImageSharp.fluid} alt="Name Surname" className="avatar" />
-            <t.H1 primary align="center">
-              Mark Teffeteller
-            </t.H1>
-            <t.LargeP align="center" max45>
-            Software engineer and cloud apprentice specializing in databases and distributed technology.
-            </t.LargeP>
+            <t.H4 align="center" max45>
+            Hi there! My name is Mark and I work as a <a href='https://www.linkedin.com/in/mark-teffeteller'>software engineer</a> in Austin, Texas. <br/>
+            With a <a href='https://www.mccombs.utexas.edu/Departments/IROM/degree-programs/MIS'>B.B.A in MIS</a> and an <a href='https://www.umgc.edu/academic-programs/masters-degrees/cloud-computing-architecture.cfm'>M.S. in Cloud Architecture</a>, I'm ready for all tech-heavy business challenges <br /> <br/>
+            </t.H4>
             <HireMe large onClick={this.openContactPopup} book>
               Connect 
-            </HireMe>
-            <HireMe large book>
-            <a style={{color: "inherit", textDecoration:"none"}} href="resume.pdf" download="teffeteller_resume">Download Resume</a> 
             </HireMe>
           </AboveFold>
 

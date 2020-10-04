@@ -6,9 +6,7 @@ import Layout, { Content } from '../components/Layout';
 import HireMePopup from '../components/HireMePopup.js';
 import { media } from '../MediaQueries';
 import Img from 'gatsby-image';
-import Iframe from '../components/Iframe';
 import { graphql } from 'gatsby';
-import  '../styles/style.css';
 
 const AboveFold = styled.div`
   ${Mixins.aboveFoldMixin}
@@ -78,22 +76,28 @@ class AboutMe extends React.Component {
     });
   };
 
+  resizeIFrameToFitContent = ( iFrame ) => {
+    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+}
+
+
   render() {
     const { openHireMePopup } = this.state;
     const { data } = this.props;
-    this.state = {
-      src: 'https://docs.google.com/document/d/e/2PACX-1vTqurg5iQxHIR-bBTejWFSpIRsHhgnQT2QmbI-QYGdT299fywpNwaNjeIBRIElq4A/pub?embedded=true'
-    };
     return (
       <AboutMeWrapper>
         <Layout theme="white" openContactPopup={this.openContactPopup}>
-        
-
           <AboveFold>
-            <Iframe style={{"height" : "500px", "width" : "100%"}} source={this.state.src} />        
+            <t.H1 green align="center">
+              Mark Teffeteller
+            </t.H1>
+            <t.LargeP align="center" max70>
+            Software engineer and cloud apprentice specializing in databases and distributed technology.
+            </t.LargeP>
           </AboveFold>
           <Content>
-          
+            <Img fluid={data.avatarAbout.childImageSharp.fluid} alt="Name Surname" className="avatar" />
           </Content>
         </Layout>
         <HireMePopup open={openHireMePopup} handleClose={this.handleRequestDemoClose} />
